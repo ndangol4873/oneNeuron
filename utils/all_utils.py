@@ -10,8 +10,13 @@ import joblib
 
 
 
-## Data preparations
-def prepare_data(df): 
+def prepare_data(df):
+  """seperate dependent and Independent variables
+
+  Args:
+      df (pd.DataFrame) : it's a pandas DataFrame
+  """
+
   x = df.drop("y", axis = 1)
   y = df["y"]
   return(x,y)
@@ -20,6 +25,12 @@ def prepare_data(df):
 
 ## Definining Save_model function 
 def save_model (model,filename): 
+  """this save the trained model
+
+  Args:
+      model (python object): trained model
+      filename (str): path to save trained model
+  """
   model_dir  = 'model'
   os.makedirs(model_dir,exist_ok=True) ## ONLY CREATE IF THE MODEL_DIR DOES NOT EXISTS
   filePath = os.path.join(model_dir,filename)## Model filename
